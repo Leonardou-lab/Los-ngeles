@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Ángeles · Parrilla y Sazón</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon:#1B1712;
+    --carbon-2:#251F19;
+    --brasa:#C1440E;
+    --brasa-deep:#8F3009;
+    --mostaza:#D6A03D;
+    --crema:#F6EFE2;
+    --crema-2:#EAE0CB;
+    --hueso:#FFFDF8;
+    --tinta:#2B241C;
+    --tinta-suave:#6E6255;
+    --linea:#DCD0B8;
+    --logo-naranja:#EF7C00;
+    --logo-verde:#00953F;
+  }
+  .logo-badge{border-radius:50%;flex-shrink:0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--crema);color:var(--tinta);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.01em}
+  a{cursor:pointer}
+  :focus-visible{outline:2.5px solid var(--brasa);outline-offset:3px}
+  .contenedor{max-width:1040px;margin:0 auto;padding-inline:1.4rem}
+  svg{flex-shrink:0}
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(27,23,18,.94);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Great Vibes',cursive;font-weight:400;color:var(--hueso);font-size:1.65rem;letter-spacing:.5px;text-decoration:none;line-height:1}
+  .nav-logo .logo-badge{width:42px;height:42px}
+  .nav-logo em{font-style:normal;color:var(--mostaza)}
+  .nav-links{display:flex;gap:1.8rem}
+  .nav-links a{color:#C9BEAE;text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.3px;text-transform:uppercase;position:relative;padding-bottom:2px}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--brasa);transition:width .25s ease}
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--hueso)}
+  .nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+  @media(max-width:640px){.nav-links{display:none}}
+  .nav-wa{display:flex;align-items:center;gap:.4rem;background:var(--brasa);color:var(--hueso);text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:.2px;padding:.5rem 1rem;border-radius:5px;white-space:nowrap;transition:background .2s ease,transform .2s ease}
+  .nav-wa svg{width:14px;height:14px}
+  .nav-wa:hover{background:var(--brasa-deep);transform:translateY(-1px)}
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:var(--carbon);color:var(--hueso);padding:4.4rem 0 3.6rem}
+  .hero .contenedor{position:relative;display:grid;grid-template-columns:1fr;gap:2.6rem;align-items:center;max-width:760px}
+  @media(max-width:820px){.hero{padding:3rem 0 2.8rem}}
+  .hero-tag{display:inline-flex;align-items:center;gap:.5rem;color:var(--mostaza);font-weight:700;font-size:.72rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem}
+  .hero-tag::before{content:"";width:26px;height:1.5px;background:var(--mostaza)}
+  .hero h1{font-family:'Great Vibes',cursive;font-size:clamp(3.6rem,10vw,6rem);font-weight:400;line-height:1.05;letter-spacing:0}
+  .hero h1 em{font-style:normal;font-weight:400;color:var(--brasa)}
+  .hero-h1-sub{display:block;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--hueso);margin-top:.2rem}
+  .hero p{max-width:520px;margin:1.3rem 0 2rem;color:#CFC5B6;font-size:1.05rem}
+  .hero-ctas{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap}
+  .btn-wa{display:inline-flex;align-items:center;gap:.6rem;background:var(--brasa);color:var(--hueso);text-decoration:none;font-weight:700;font-size:.98rem;padding:.9rem 1.5rem;border-radius:6px;box-shadow:5px 5px 0 rgba(0,0,0,.35);transition:transform .18s ease,box-shadow .18s ease}
+  .btn-wa svg{width:19px;height:19px;fill:var(--hueso)}
+  .btn-wa:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.35)}
+  .btn-menu-hero{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--mostaza);border:1.5px solid var(--mostaza);font-weight:700;font-size:.95rem;padding:.85rem 1.3rem;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s,color .2s;text-decoration:none}
+  .btn-menu-hero svg{width:17px;height:17px}
+  .btn-menu-hero:hover{background:var(--mostaza);color:var(--carbon)}
+  .hero-tel{display:flex;align-items:center;gap:.5rem;color:#CFC5B6;text-decoration:none;font-size:.9rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px}
+  .hero-tel svg{width:16px;height:16px;color:var(--mostaza)}
+  .hero-tel:hover{color:var(--hueso);border-color:var(--mostaza)}
+  .hero-nota{margin-top:1.4rem;font-size:.82rem;color:#8B8175}
+  /* ---------- SECCIONES GENÉRICAS ---------- */
+  section{padding:4.4rem 0}
+  .eyebrow{display:flex;align-items:center;gap:.55rem;color:var(--brasa);font-weight:700;font-size:.74rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.6rem}
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--brasa)}
+  .titulo{font-size:clamp(1.8rem,4.2vw,2.5rem);font-weight:600;color:var(--tinta);margin-bottom:.5rem;letter-spacing:-.01em}
+  .lede{max-width:560px;color:var(--tinta-suave);font-size:1rem;margin-top:.4rem}
+  /* ========== SECCIÓN EL MENÚ (estilo carta desplegable) ========== */
+  .menu-sec{background:var(--crema-2);color:var(--tinta);position:relative;overflow:hidden;padding:4.2rem 0 3.6rem;border-top:6px solid var(--brasa);border-bottom:6px solid var(--brasa)}
+  .menu-sec-head{text-align:center;position:relative}
+  .menu-sec-eyebrow{color:var(--brasa);font-weight:700;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:.7rem}
+  .menu-sec-title{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,2.9rem);font-weight:600;letter-spacing:1px;color:var(--tinta)}
+  /* Tabs centradas estilo botón/recuadro */
+  .menu-tabs{display:flex;justify-content:center;gap:1.1rem;margin-top:2rem;position:relative;flex-wrap:wrap}
+  .menu-tab{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--brasa);border:1.5px solid var(--brasa);cursor:pointer;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.85rem 1.5rem;border-radius:6px;transition:background .2s ease,color .2s ease,transform .2s ease}
+  .menu-tab:hover{background:var(--brasa);color:var(--hueso)}
+  .menu-tab[aria-selected="true"]{background:var(--brasa);color:var(--hueso)}
+  /* Contenido desplegable */
+  .menu-despliegue{max-width:920px;margin:0 auto;padding-inline:1.1rem}
+  .menu-panel{background:var(--hueso);color:var(--tinta);border-radius:12px;margin-top:2.2rem;overflow:hidden;box-shadow:0 8px 24px rgba(43,36,28,.08);
+    opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .3s ease}
+  .menu-panel.abierto{opacity:1;transform:none}
+  .menu-panel[hidden]{display:none}
+  @media(prefers-reduced-motion:reduce){.menu-panel{transition:none;transform:none}}
+  /* Chips de navegación interna */
+  .menu-chips{display:flex;gap:.45rem;padding:.75rem 1.1rem;overflow-x:auto;background:var(--crema-2);border-bottom:1px solid var(--linea);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .menu-chips::-webkit-scrollbar{display:none}
+  .menu-chip{flex-shrink:0;background:var(--hueso);color:var(--tinta);font-size:.74rem;font-weight:700;letter-spacing:.3px;border:1px solid var(--linea);border-radius:20px;padding:.28rem .8rem;cursor:pointer;transition:background .15s,color .15s,border-color .15s;white-space:nowrap;font-family:'Inter',sans-serif}
+  .menu-chip:hover,.menu-chip:focus-visible{background:var(--carbon);color:var(--hueso);border-color:var(--carbon)}
+  /* Secciones internas del menú */
+  .ov-sec{padding:1.5rem 1.3rem .6rem;position:relative}
+  .ov-sec:last-child{padding-bottom:2.4rem}
+  .ov-pill{display:inline-block;background:var(--carbon);color:var(--hueso);font-family:'Fraunces',serif;font-size:.83rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:.32rem .95rem;border-radius:20px;margin-bottom:.9rem}
+  .ov-pill--brasa{background:var(--brasa)}
+  .ov-pill--mostaza{background:var(--mostaza);color:var(--carbon)}
+  .ov-incluye{background:var(--carbon);color:#CFC5B6;border-radius:7px;padding:.85rem 1.1rem;font-size:.86rem;margin-bottom:1rem;position:relative}
+  .ov-incluye::before{content:"";position:absolute;top:-1px;left:0;right:0;height:8px;background-image:radial-gradient(circle at 8px 4px,var(--hueso) 4px,transparent 4.5px);background-size:16px 8px;background-repeat:repeat-x}
+  .ov-incluye strong{color:var(--mostaza);display:flex;align-items:center;gap:.4rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.8px;margin-bottom:.3rem}
+  .ov-incluye strong svg{width:14px;height:14px}
+  .ov-list{margin-top:.3rem}
+  .ov-item{display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;padding:.5rem 0;border-bottom:1.5px dotted var(--linea)}
+  .ov-item:last-child{border-bottom:none}
+  .ov-item-info{flex:1;min-width:0}
+  .ov-item-name{display:block;font-size:.95rem;font-weight:600;color:var(--tinta);line-height:1.3}
+  .ov-item-num{font-size:.68rem;font-weight:700;color:var(--brasa);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.08rem}
+  .ov-item-desc{display:block;font-size:.82rem;color:var(--tinta-suave);margin-top:.12rem;line-height:1.4}
+  .ov-item-note{display:block;font-size:.79rem;color:var(--brasa-deep);font-style:italic;margin-top:.1rem}
+  .ov-item-price{font-family:'Fraunces',serif;font-weight:800;color:var(--brasa);font-size:1.02rem;white-space:nowrap;flex-shrink:0;padding-top:.1rem}
+  .ov-item-price.var{font-size:.84rem;color:var(--tinta-suave);font-weight:600;font-family:'Inter',sans-serif}
+  .ov-badge{display:inline-block;background:var(--carbon);color:var(--mostaza);font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:.12rem .5rem;border-radius:10px;margin-left:.35rem;vertical-align:middle;white-space:nowrap}
+  .ov-subsec{margin-top:1.1rem}
+  .ov-subsec-title{font-family:'Fraunces',serif;font-size:.85rem;font-weight:600;color:var(--tinta-suave);border-bottom:2px solid var(--linea);padding-bottom:.3rem;margin-bottom:.4rem;letter-spacing:.2px}
+  .ov-nota-suelta{font-size:.82rem;color:var(--tinta-suave);margin-top:1rem;font-style:italic}
+  /* ---------- FOTOS ---------- */
+  .fotos{background:var(--crema-2)}
+  .fotos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.85rem;margin-top:1.8rem}
+  .foto-ph{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:linear-gradient(155deg,#3B2E22,#1B1712);display:flex;align-items:flex-end;color:#B8AE9F;font-size:.76rem;font-weight:600;text-align:left;padding:.7rem;border:1px solid rgba(255,255,255,.08)}
+  .foto-ph::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(193,68,14,.28),transparent 60%)}
+  .foto-ph span{position:relative;z-index:1}
+  .foto-ph.grande{grid-column:span 2;aspect-ratio:2/1}
+  @media(max-width:420px){.foto-ph.grande{grid-column:span 1;aspect-ratio:1/1}}
+  /* ---------- DOMICILIO ---------- */
+  .domi-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;margin-top:1.8rem}
+  .domi-card{background:var(--hueso);border-radius:8px;padding:1.4rem;border-top:3px solid var(--brasa);box-shadow:0 2px 10px rgba(43,36,28,.05)}
+  .domi-card svg{width:22px;height:22px;color:var(--brasa);margin-bottom:.7rem}
+  .domi-card h3{color:var(--tinta);font-size:1.02rem;margin-bottom:.4rem;letter-spacing:.1px}
+  .domi-card p{font-size:.92rem;color:var(--tinta-suave)}
+  /* ---------- UBICACIÓN ---------- */
+  .ubi{background:var(--crema-2)}
+  .ubi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.8rem;align-items:stretch}
+  @media(max-width:680px){.ubi-grid{grid-template-columns:1fr}}
+  .mapa-wrap{position:relative;border-radius:8px;overflow:hidden;min-height:280px;border:1px solid var(--linea);box-shadow:0 2px 10px rgba(43,36,28,.06)}
+  .mapa-iframe{width:100%;height:100%;min-height:280px;border:0;display:block}
+  .mapa-cta{position:absolute;bottom:.9rem;right:.9rem;display:inline-flex;align-items:center;gap:.4rem;background:var(--brasa);color:var(--hueso);text-decoration:none;font-weight:700;font-size:.82rem;letter-spacing:.2px;padding:.55rem .95rem;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.25);transition:background .2s ease,transform .2s ease;z-index:2}
+  .mapa-cta svg{width:15px;height:15px}
+  .mapa-cta:hover{background:var(--brasa-deep);transform:translateY(-1px)}
+  .horarios{background:var(--hueso);border-radius:8px;padding:1.5rem;border:1px solid var(--linea)}
+  .horarios h3{display:flex;align-items:center;gap:.5rem;color:var(--tinta);font-size:1.1rem;margin-bottom:.9rem}
+  .horarios h3 svg{width:18px;height:18px;color:var(--brasa)}
+  .horarios ul{list-style:none}
+  .horarios li{display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1.5px dotted var(--linea);font-size:.93rem}
+  .horarios li:last-child{border-bottom:none}
+  .horarios .cerrado{color:var(--brasa);font-weight:800}
+  .direccion{display:flex;align-items:flex-start;gap:.5rem;margin-top:1.1rem;font-size:.9rem;color:var(--tinta-suave)}
+  .direccion svg{width:16px;height:16px;color:var(--brasa);flex-shrink:0;margin-top:2px}
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--carbon);color:#9A9082;text-align:center;padding:3rem 1.2rem 2.2rem}
+  .footer-logo{display:inline-flex;align-items:center;gap:.7rem;font-family:'Great Vibes',cursive;font-weight:400;color:var(--hueso);font-size:2rem;margin-bottom:.8rem;line-height:1}
+  .footer-logo .logo-badge{width:54px;height:54px}
+  .footer-logo em{font-style:normal;color:var(--mostaza)}
+  footer > p{color:#B8AE9F;font-size:.92rem}
+  .footer-redes{display:flex;justify-content:center;gap:1.1rem;margin:1.3rem 0 1.5rem}
+  .footer-redes a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.14);color:#CFC5B6;text-decoration:none;transition:border-color .2s ease,color .2s ease}
+  .footer-redes a svg{width:17px;height:17px}
+  .footer-redes a:hover{border-color:var(--brasa);color:var(--mostaza)}
+  footer small{display:block;margin-top:.6rem;font-size:.72rem;color:#655D51}
+  /* ---------- WA FLOTANTE ---------- */
+  .wa-float{position:fixed;bottom:1.3rem;right:1.3rem;z-index:60;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.3);transition:transform .18s ease}
+  .wa-float svg{width:28px;height:28px;fill:#fff}
+  .wa-float:hover{transform:scale(1.07)}
+  /* ---------- AJUSTES MÓVIL ---------- */
+  @media(max-width:640px){
+    section{padding:3rem 0}
+    .menu-sec{padding:3.2rem 0 2.8rem}
+    .menu-tabs{margin-top:1.6rem;gap:.8rem}
+    .menu-tab{font-size:.85rem;letter-spacing:1.5px;padding:.75rem 1.2rem}
+    .menu-despliegue{padding-inline:.7rem}
+    .menu-panel{margin-top:1.6rem;border-radius:10px}
+    .ov-sec{padding:1.3rem 1rem .5rem}
+    .ov-item-name{font-size:.92rem}
+    .ov-item-price{font-size:.98rem}
+    .titulo{font-size:1.7rem}
+    .nav-logo{font-size:1.4rem;gap:.45rem}
+    .nav-logo .logo-badge{width:36px;height:36px}
+    .hero p{font-size:1rem;margin:1.1rem 0 1.6rem}
+    .hero-nota{margin-top:1.1rem}
+    .wa-float{width:50px;height:50px;bottom:1rem;right:1rem}
+    .wa-float svg{width:26px;height:26px}
+  }
+  @media(max-width:480px){
+    .hero-ctas{flex-direction:column;align-items:stretch;gap:.8rem}
+    .btn-wa,.btn-menu-hero{justify-content:center;width:100%}
+    .hero-tel{justify-content:center;border-bottom:none}
+    .menu-tabs{flex-direction:column;align-items:stretch}
+    .menu-tab{justify-content:center;width:100%}
+    .menu-chips{padding:.6rem .8rem}
+    .ov-incluye{font-size:.82rem;padding:.75rem .9rem}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="#">
+    <svg class="logo-badge" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="48" fill="var(--logo-naranja)"/>
+      <text x="50" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="6.4" letter-spacing="2.6" fill="#FFFDF8">RESTAURANTE</text>
+      <text x="50" y="57" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="22" fill="#FFFDF8">Los Angeles</text>
+      <line x1="26" y1="64" x2="74" y2="64" stroke="var(--logo-verde)" stroke-width="2"/>
+      <g stroke="var(--logo-verde)" stroke-width="2.4" stroke-linecap="round" fill="none">
+        <line x1="42" y1="71" x2="56" y2="85"/>
+        <line x1="58" y1="71" x2="44" y2="85"/>
+        <ellipse cx="59" cy="70" rx="3.4" ry="4.4" fill="var(--logo-verde)" stroke="none" transform="rotate(45 59 70)"/>
+        <path d="M38.5 67.5l6 6M41.5 64.5l6 6" stroke-width="1.7"/>
+      </g>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="#menu">Menú</a>
+    <a href="#domicilio">Domicilio</a>
+    <a href="#ubicacion">Ubicación</a>
+  </div>
+  <a class="nav-wa" href="https://wa.me/5215546323064" aria-label="Pedir por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.1Z" fill="currentColor"/></svg>
+    Pedir ahora
+  </a>
+</nav>
+<header class="hero">
+  <div class="contenedor">
+    <div>
+      <span class="hero-tag">Parrilla y Comida familiar</span>
+      <h1>Los <em>Ángeles</em><span class="hero-h1-sub">Restaurante</span></h1>
+      <br>
+      <br>
+      <div class="hero-ctas">
+        <a class="btn-wa" href="https://wa.me/5215546323064">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.1Z"/></svg>
+          Pedir por WhatsApp
+        </a>
+        <a class="btn-menu-hero" href="#menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h12M4 18h8"/></svg>
+          Ver menú
+        </a>
+        <a class="hero-tel" href="tel:5546323064">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5c0 9 7 16 16 16l3-4-6-3-2 2c-3-1-5-3-6-6l2-2-3-6-4 3Z"/></svg>
+          55 4632-3064
+        </a>
+      </div>
+      <p class="hero-nota">Servicio a domicilio en la zona. Pedidos por WhatsApp o teléfono</p>     
+    </div>
+  </div>
+</header>
+<!-- ========== EL MENÚ ========== -->
+<section class="menu-sec" id="menu">
+  <div class="menu-sec-head contenedor">
+    <span class="menu-sec-eyebrow">Restaurante Los Ángeles</span>
+    <h2 class="menu-sec-title">EL MENÚ</h2>
+    <div class="menu-tabs" role="tablist" aria-label="Categorías del menú">
+      <button class="menu-tab" id="tab-desayuno" role="tab" aria-selected="false" aria-controls="panel-desayuno">Desayuno</button>
+      <button class="menu-tab" id="tab-comida" role="tab" aria-selected="false" aria-controls="panel-comida">Comida</button>
+    </div>
+  </div>
+  <div class="menu-despliegue">
+    <!-- ══════════ PANEL DESAYUNO ══════════ -->
+    <div class="menu-panel" id="panel-desayuno" role="tabpanel" aria-labelledby="tab-desayuno" hidden>
+      <div class="menu-chips" role="navigation" aria-label="Secciones desayuno">
+        <button class="menu-chip" data-target="des-paquetes">Los Paquetes</button>
+        <button class="menu-chip" data-target="des-sin-paq">Sin Paquete</button>
+        <button class="menu-chip" data-target="des-bebidas">Bebidas</button>
+      </div>
+      <div class="ov-sec" id="des-paquetes">
+        <h3 class="ov-pill">Los Paquetes · Desayuno</h3>
+        <div class="ov-incluye">
+          <strong>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/></svg>
+            Todos los paquetes incluyen
+          </strong>
+          Café · fruta · jugo de naranja · pan tostado con mantequilla, mermelada y cajeta
+        </div>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles sencillos</span><span class="ov-item-desc">Verdes con queso y crema, frijoles refritos</span><span class="ov-item-note">Gratinados +$20</span></div><span class="ov-item-price">$110</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles compuestos</span><span class="ov-item-desc">Pollo ó bistec ó chorizo ó suadero ó cochinita pibil</span><span class="ov-item-note">Gratinados +$20</span></div><span class="ov-item-price">$125</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas de pollo</span><span class="ov-item-desc">3 enchiladas verdes con queso y crema</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enmoladas</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enfrijoladas</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas suizas</span><span class="ov-item-desc">3 enchiladas verdes gratinadas con queso manchego</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Ejecutivo (pieza completa)</span><span class="ov-item-desc">Costilla, bistec ó pechuga de pollo ó cecina adobada ó cecina natural · con chilaquiles y frijoles refritos</span></div><span class="ov-item-price">$160</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Veracruzano</span><span class="ov-item-desc">Enfrijoladas rellenas de huevo, crema, queso y chorizo</span></div><span class="ov-item-price">$145</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huarache sencillo</span></div><span class="ov-item-price">$99</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huarache compuesto</span><span class="ov-item-desc">Bistec, suadero, chorizo, cecina adobada, choristec, pollo, nopales, cochinita, queso Oaxaca</span></div><span class="ov-item-price">$125</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huarache 2 ingredientes</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huarache compuesto especial</span><span class="ov-item-desc">Arrachera, costilla a la parrilla, pechuga, cecina natural</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Omelet (2 ingredientes)</span><span class="ov-item-desc">Jamón ó salchicha ó queso ó chorizo ó espinaca ó queso panela ó queso manchego</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huevos al gusto</span><span class="ov-item-desc">A la mexicana, jamón, tocino, longaniza · con chilaquiles y frijoles</span></div><span class="ov-item-price">$130</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Los Divorciados / Los Rancheros</span><span class="ov-item-desc">Con chilaquiles y frijoles</span></div><span class="ov-item-price">$130</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Molletes</span></div><span class="ov-item-price">$115</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Hot cakes</span></div><span class="ov-item-price">$130</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sopecitos</span><span class="ov-item-desc">Bistec, suadero, chorizo, pollo, cochinita</span></div><span class="ov-item-price">$115</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Paquete Pancita en desayuno <span class="ov-badge">Jue · Dom</span></span><span class="ov-item-desc">Incluye jugo, café, pan y fruta · con botana de chicharrón</span><span class="ov-item-note">Plato chico $145 · plato grande $170</span></div><span class="ov-item-price var">desde $145</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="des-sin-paq">
+        <h3 class="ov-pill ov-pill--brasa">Desayunos Sin Paquete</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huevos al gusto / Ranchero / Divorciado</span></div><span class="ov-item-price">$70</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles sencillos</span></div><span class="ov-item-price">$70</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles compuestos</span></div><span class="ov-item-price">$85</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles ejecutivo</span></div><span class="ov-item-price">$105</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas</span></div><span class="ov-item-price">$90</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas suizas</span></div><span class="ov-item-price">$105</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enfrijoladas / Veracruzano / Enmoladas</span></div><span class="ov-item-price">$90</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Molletes sencillos</span></div><span class="ov-item-price">$60</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Molletes compuestos</span><span class="ov-item-desc">Bistec, cecina adobada, chorizo, cochinita pibil, pollo, jamón</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de sopecitos</span></div><span class="ov-item-price">$50</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Hot cake</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Omelet</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Huevo extra</span></div><span class="ov-item-price">$15</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de pan con mantequilla</span></div><span class="ov-item-price">$20</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="des-bebidas">
+        <h3 class="ov-pill ov-pill--mostaza">Bebidas</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Jugo de naranja / Jugo verde</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Café americano / Café de olla / Té</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Agua de sabor</span><span class="ov-item-desc">Horchata, jamaica, tamarindo</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Refresco</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato de fruta</span></div><span class="ov-item-price">$30</span></div>
+        </div>
+      </div>
+    </div><!-- /panel-desayuno -->
+    <!-- ══════════ PANEL COMIDA ══════════ -->
+    <div class="menu-panel" id="panel-comida" role="tabpanel" aria-labelledby="tab-comida" hidden>
+      <div class="menu-chips" role="navigation" aria-label="Secciones comida">
+        <button class="menu-chip" data-target="com-paquetes">Los Paquetes</button>
+        <button class="menu-chip" data-target="com-entradas">Entradas</button>
+        <button class="menu-chip" data-target="com-tacos">Tacos</button>
+        <button class="menu-chip" data-target="com-parrilla">Parrilla</button>
+        <button class="menu-chip" data-target="com-alambres">Alambres</button>
+        <button class="menu-chip" data-target="com-huaraches">Huaraches</button>
+        <button class="menu-chip" data-target="com-sopes">Sopes</button>
+        <button class="menu-chip" data-target="com-pancita">Pancita</button>
+        <button class="menu-chip" data-target="com-antojo">Un Antojo</button>
+        <button class="menu-chip" data-target="com-compartidos">Compartidos</button>
+        <button class="menu-chip" data-target="com-bebidas">Bebidas</button>
+      </div>
+      <div class="ov-sec" id="com-paquetes">
+        <h3 class="ov-pill">Los Paquetes</h3>
+        <div class="ov-incluye">
+          <strong>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16l-1.5 9H5.5L4 4Z"/><path d="M7 13v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-6"/></svg>
+            Todos los paquetes incluyen
+          </strong>
+          Consomé de pollo (con arroz y garbanzo) ó sopa de hongos · 1 bebida (refresco o agua de sabor) · Frijoles de la olla / botana chicharrón / postre
+        </div>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 1</span><span class="ov-item-name">Tus Tacos</span><span class="ov-item-desc">3 tacos a escoger en tortilla grande: bisteck, chorizo, suadero, pollo, adobada, cochinita</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 2</span><span class="ov-item-name">De Arrachera</span><span class="ov-item-desc">2 tacos de arrachera</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 3</span><span class="ov-item-name">Enchiles</span><span class="ov-item-desc">3 enchiladas de pollo</span><span class="ov-item-note">Enchiladas suizas +$20</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 4</span><span class="ov-item-name">Chiflen</span><span class="ov-item-desc">3 flautas (res, pollo ó queso)</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 5</span><span class="ov-item-name">A Mis Costillas</span><span class="ov-item-desc">Costilla (ensalada ó nopales ó dobladita)</span></div><span class="ov-item-price">$185</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 6</span><span class="ov-item-name">Apechugues</span><span class="ov-item-desc">Pechuga al carbón (ensalada ó nopales ó papas)</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 7</span><span class="ov-item-name">Piques</span><span class="ov-item-desc">Alambre de pollo ó bisteck</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 8</span><span class="ov-item-name">Piques Arrachera</span><span class="ov-item-desc">Alambre de arrachera</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$199</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 9</span><span class="ov-item-name">Llenes</span><span class="ov-item-desc">Arrachera al carbón 250 g con papas a la francesa y ensalada</span></div><span class="ov-item-price">$195</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 10</span><span class="ov-item-name">Animes</span><span class="ov-item-desc">Carne a la tampiqueña con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 11</span><span class="ov-item-name">Consientas</span><span class="ov-item-desc">Cecina natural con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$185</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 12</span><span class="ov-item-name">Chilaquiles</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Ejecutivo $180</span></div><span class="ov-item-price var">desde $120</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 13</span><span class="ov-item-name">Agujas Norteñas</span><span class="ov-item-desc">Con papas a la francesa</span></div><span class="ov-item-price">$160</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 14</span><span class="ov-item-name">Sopecitos</span><span class="ov-item-desc">Sencillos $118 · Compuestos $125</span></div><span class="ov-item-price var">desde $118</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 15</span><span class="ov-item-name">Chancla (Huarache)</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Especial $180</span></div><span class="ov-item-price var">desde $120</span></div>
+        </div>
+        <p class="ov-nota-suelta">Cambios: consomé con pollo +$15 · tacos con queso +$20 · cerveza +$19</p>
+      </div>
+      <div class="ov-sec" id="com-entradas">
+        <h3 class="ov-pill ov-pill--brasa">De Entrada</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sopa de hongos</span></div><span class="ov-item-price">$45</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Consomé de pollo</span><span class="ov-item-desc">Con arroz y garbanzo</span></div><span class="ov-item-price">$45</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Consomé con pollo</span><span class="ov-item-desc">Pechuga desmenuzada, arroz y garbanzo</span></div><span class="ov-item-price">$60</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Papas a la francesa</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$49</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Guacamole sin chile</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$49</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Nopalitos cocinados con cebolla</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$49</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Frijoles de la olla</span></div><span class="ov-item-price">$25</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chicharrón</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$30</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Quesadilla asada</span><span class="ov-item-desc">Queso o chorizo</span></div><span class="ov-item-price">$30</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de 3 sopecitos</span><span class="ov-item-desc">Pollo, bistec, suadero, cochinita, chorizo, carne adobada</span></div><span class="ov-item-price">$50</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-tacos">
+        <h3 class="ov-pill">Los Tacos</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Bisteck / Pollo</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Suadero / Cecina adobada</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chorizo toluqueño</span><span class="ov-item-desc">Tradicional con semillas</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Taco con queso</span></div><span class="ov-item-price">$40</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Tacos de arrachera</span><span class="ov-item-desc">2 piezas</span></div><span class="ov-item-price">$85</span></div>
+        </div>
+        <p class="ov-nota-suelta">Tortillas hechas a mano</p>
+      </div>
+      <div class="ov-sec" id="com-parrilla">
+        <h3 class="ov-pill ov-pill--brasa">Parrilla</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Costilla</span><span class="ov-item-desc">Nopales ó ensalada, con frijoles de la olla</span></div><span class="ov-item-price">$145</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Agujas norteñas</span><span class="ov-item-desc">Asada al carbón con papas a la francesa</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Pechuga de pollo</span><span class="ov-item-desc">Natural o adobada · nopales ó ensalada, frijoles, papas a la francesa</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Arrachera especial 250 g</span><span class="ov-item-desc">Papas a la francesa, ensalada y frijoles de la olla</span></div><span class="ov-item-price">$165</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Carne tampiqueña</span><span class="ov-item-desc">Dobladita verde, arroz ó ensalada y frijoles</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cecina natural</span><span class="ov-item-desc">Dobladita verde, arroz ó ensalada y frijoles de la olla</span></div><span class="ov-item-price">$140</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-alambres">
+        <h3 class="ov-pill">Alambres</h3>
+        <p style="font-size:.84rem;color:var(--tinta-suave);margin-bottom:.7rem">Tocino, jamón, pimiento morrón y cebolla · incluyen frijoles de la olla</p>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Alambre de bisteck de res</span></div><span class="ov-item-price">$145</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Alambre de pollo</span></div><span class="ov-item-price">$145</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Combinado de nopales con pollo ó bistec</span></div><span class="ov-item-price">$125</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Alambre de arrachera</span></div><span class="ov-item-price">$155</span></div>
+        </div>
+        <p class="ov-nota-suelta">Con queso +$15</p>
+      </div>
+      <div class="ov-sec" id="com-huaraches">
+        <h3 class="ov-pill ov-pill--mostaza">Huaraches</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sencillo</span><span class="ov-item-desc">Salsa verde, roja ó combinada</span></div><span class="ov-item-price">$50</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con bistec / suadero / chorizo / cecina adobada / choristec / pollo / nopales / cochinita / queso Oaxaca</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con arrachera</span></div><span class="ov-item-price">$95</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con costilla al carbón / cecina yecapixtla / pechuga</span></div><span class="ov-item-price">$105</span></div>
+        </div>
+        <p class="ov-nota-suelta">Paquete huarache (consomé, frijoles y bebida) +$60</p>
+      </div>
+      <div class="ov-sec" id="com-sopes">
+        <h3 class="ov-pill">Sopes</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sope sencillo</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sope de guisado</span><span class="ov-item-desc">Tamaño normal: bistec, pollo, chorizo, suadero, cecina adobada</span></div><span class="ov-item-price">$45</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de 3 sopes</span><span class="ov-item-desc">Tamaño pequeño</span></div><span class="ov-item-price">$50</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-pancita">
+        <h3 class="ov-pill ov-pill--brasa">Rica Pancita <span class="ov-badge">Jue · Vie · Sáb · Dom</span></h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato chico</span></div><span class="ov-item-price">$95</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato grande</span></div><span class="ov-item-price">$120</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-antojo">
+        <h3 class="ov-pill">Un Antojo</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flautas 3 pz</span><span class="ov-item-desc">Pollo ó res ó queso, con lechuga, queso y crema</span></div><span class="ov-item-price">$90</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flauta individual</span></div><span class="ov-item-price">$35</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas verdes 3 pz con pollo</span></div><span class="ov-item-price">$90</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles solos</span></div><span class="ov-item-price">$70</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles compuestos</span><span class="ov-item-desc">Con pollo / bisteck / chorizo / huevo / cecina adobada / cochinita pibil</span></div><span class="ov-item-price">$85</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles con costilla / cecina natural / arrachera</span></div><span class="ov-item-price">$120</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles ejecutivo con pechuga</span></div><span class="ov-item-price">$160</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-compartidos">
+        <h3 class="ov-pill ov-pill--brasa">Los Compartidos</h3>
+        <div class="ov-list">
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Paquete "A"</span><span class="ov-item-desc">1⁄2 kg arrachera · 2 órdenes de consomé · 1 orden de chicharrón · 1 orden de papas a la francesa · cebollitas y chiles toreados</span></div><span class="ov-item-price">$390</span></div>
+        </div>
+      </div>
+      <div class="ov-sec" id="com-bebidas">
+        <h3 class="ov-pill ov-pill--mostaza">Bebidas y Postres</h3>
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Aguas naturales</p>
+          <p style="font-size:.8rem;color:var(--tinta-suave);margin-bottom:.4rem">Jamaica · horchata · tamarindo · jamaica sin azúcar</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Vaso 1⁄2 L</span></div><span class="ov-item-price">$35</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Jarra 1 L</span></div><span class="ov-item-price">$65</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Jarra 2 L</span></div><span class="ov-item-price">$120</span></div>
+          </div>
+          <p class="ov-nota-suelta" style="margin-top:.3rem">La horchata contiene leche condensada</p>
+        </div>
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Café y refrescos</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Café de olla / Café americano</span></div><span class="ov-item-price">$30</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Refresco</span><span class="ov-item-desc">Coca-Cola, Mundet, Sangría, agua mineral, Ciel, Coca light y sin azúcar</span></div><span class="ov-item-price">$35</span></div>
+          </div>
+        </div>
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Cervezas</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cerveza</span><span class="ov-item-desc">Tecate, Indio, XX Lager, Corona, Ámbar, Oscura, Bohemia Clara</span></div><span class="ov-item-price">$44</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Michelada / Cubanas</span></div><span class="ov-item-price">+$10</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Clamatos</span></div><span class="ov-item-price">+$25</span></div>
+          </div>
+        </div>
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Postres</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan napolitano</span></div><span class="ov-item-price">$45</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan de Nutella</span></div><span class="ov-item-price">$49</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan de cajeta</span></div><span class="ov-item-price">$49</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Rebanada de pastel</span><span class="ov-item-desc">Incluye café</span></div><span class="ov-item-price">$65</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /panel-comida -->
+  </div>
+</section>
+<section class="fotos">
+  <div class="contenedor">
+    <p class="eyebrow">Conócenos</p>
+    <h2 class="titulo">Directo de la parrilla</h2>
+    <p class="lede">Un vistazo a lo que se cocina cada día en el carbón.</p>
+    <p>Carnes al carbón y sazón de casa. Ven con tu familia o pide a domicilio, aquí se come rico y a gusto</p>
+
+    <div class="fotos-grid">
+      <div class="foto-ph grande"><span>Foto: parrilla al carbón</span></div>
+      <div class="foto-ph"><span>Foto: arrachera</span></div>
+      <div class="foto-ph"><span>Foto: costillas BBQ</span></div>
+      <div class="foto-ph"><span>Foto: interior del local</span></div>
+      <div class="foto-ph"><span>Foto: alambre con queso</span></div>
+    </div>
+  </div>
+</section>
+<section id="domicilio">
+  <div class="contenedor">
+    <p class="eyebrow">Servicio a domicilio</p>
+    <h2 class="titulo">Te lo llevamos calientito y recién hecho</h2>
+    <div class="domi-cards">
+      <div class="domi-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4.4-3.6-7-6.8-7-10a7 7 0 0 1 14 0c0 3.2-2.6 6.4-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+        <h3>Zona de entrega</h3><p>En la colonia Nonoalco Mixcoac.</p>
+      </div>
+      <div class="domi-card">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.1Z" fill="currentColor"/></svg>
+        <h3>Cómo pedir</h3><p>Mándanos WhatsApp o llámanos al 55 4632-3064 y en minutos va en camino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="ubi" id="ubicacion">
+  <div class="contenedor">
+    <p class="eyebrow">Visítanos</p>
+    <h2 class="titulo">Ubicación y horarios</h2>
+    <div class="ubi-grid">
+      <div class="mapa-wrap">
+        <iframe
+          class="mapa-iframe"
+          src="https://www.google.com/maps?q=Sebasti%C3%A1n+del+Piombo+21,+Nonoalco,+Benito+Ju%C3%A1rez,+03700+Ciudad+de+M%C3%A9xico,+CDMX&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="Ubicación de Restaurante Los Ángeles"></iframe>
+        <a class="mapa-cta"
+           href="https://www.google.com/maps/dir/?api=1&destination=Sebasti%C3%A1n+del+Piombo+21,+Nonoalco,+Benito+Ju%C3%A1rez,+03700+Ciudad+de+M%C3%A9xico,+CDMX"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4.4-3.6-7-6.8-7-10a7 7 0 0 1 14 0c0 3.2-2.6 6.4-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+          Cómo llegar
+        </a>
+      </div>
+      <div class="horarios">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          Horario
+        </h3>
+        <ul>
+          <li><span>Lunes a viernes</span><span>9:00 – 18:00</span></li>
+          <li><span>Sábado</span><span>9:00 – 18:00</span></li>
+          <li><span>Domingo</span><span>9:00 – 15:00</span></li>
+        </ul>
+        <p class="direccion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4.4-3.6-7-6.8-7-10a7 7 0 0 1 14 0c0 3.2-2.6 6.4-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+          Sebastián del Piombo #21, Col. Nonoalco Mixcoac, CDMX
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <span class="footer-logo">
+    <svg class="logo-badge" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="48" fill="var(--logo-naranja)"/>
+      <text x="50" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="6.4" letter-spacing="2.6" fill="#FFFDF8">RESTAURANTE</text>
+      <text x="50" y="57" text-anchor="middle" font-family="'Great Vibes',cursive" font-size="22" fill="#FFFDF8">Los Angeles</text>
+      <line x1="26" y1="64" x2="74" y2="64" stroke="var(--logo-verde)" stroke-width="2"/>
+      <g stroke="var(--logo-verde)" stroke-width="2.4" stroke-linecap="round" fill="none">
+        <line x1="42" y1="71" x2="56" y2="85"/>
+        <line x1="58" y1="71" x2="44" y2="85"/>
+        <ellipse cx="59" cy="70" rx="3.4" ry="4.4" fill="var(--logo-verde)" stroke="none" transform="rotate(45 59 70)"/>
+        <path d="M38.5 67.5l6 6M41.5 64.5l6 6" stroke-width="1.7"/>
+      </g>
+    </svg>
+    Los <em>Ángeles</em>
+  </span>
+  <p>Parrilla y sazón de casa desde siempre.</p>
+  <div class="footer-redes">
+    <a href="https://wa.me/5215546323064" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.1Z"/></svg>
+    </a>
+    <a href="#" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.34C16.24 4.3 15.36 4.2 14.3 4.2c-2.2 0-3.7 1.34-3.7 3.8V10.5H8v3h2.6V21h2.9Z"/></svg>
+    </a>
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg>
+    </a>
+  </div>
+  <small>Mockup de demostración · Los datos de horarios y zona de entrega son de ejemplo.</small>
+</footer>
+<a class="wa-float" href="https://wa.me/5215546323064" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 .9-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.1Z" fill="currentColor"/></svg>
+</a>
+<script>
+(function(){
+  'use strict';
+  var tabs = document.querySelectorAll('.menu-tab');
+  var panels = {
+    desayuno: document.getElementById('panel-desayuno'),
+    comida: document.getElementById('panel-comida')
+  };
+  var actual = null;
+  function mostrar(cat){
+    if (actual === cat){
+      panels[cat].classList.remove('abierto');
+      panels[cat].hidden = true;
+      tabs.forEach(function(t){ t.setAttribute('aria-selected','false'); });
+      actual = null;
+      return;
+    }
+    actual = cat;
+    tabs.forEach(function(t){
+      t.setAttribute('aria-selected', t.getAttribute('aria-controls') === 'panel-'+cat ? 'true' : 'false');
+    });
+    Object.keys(panels).forEach(function(k){
+      var p = panels[k];
+      if (k === cat){
+        p.hidden = false;
+        p.classList.remove('abierto');
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ p.classList.add('abierto'); });
+        });
+      } else {
+        p.classList.remove('abierto');
+        p.hidden = true;
+      }
+    });
+  }
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      mostrar(tab.getAttribute('aria-controls').replace('panel-',''));
+    });
+  });
+  document.querySelectorAll('.menu-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var target = document.getElementById(chip.dataset.target);
+      if (target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
