@@ -129,6 +129,9 @@
   .foto-ph span{position:relative;z-index:1}
   .foto-ph.grande{grid-column:span 2;aspect-ratio:2/1}
   @media(max-width:420px){.foto-ph.grande{grid-column:span 1;aspect-ratio:1/1}}
+  .slogan-parrilla{margin-top:1.4rem;padding:1.2rem 1.4rem;background:var(--hueso);border-left:4px solid var(--brasa);border-radius:6px;max-width:640px}
+  .slogan-parrilla-title{font-family:'Fraunces',serif;font-weight:600;color:var(--brasa);font-size:1.05rem;letter-spacing:.2px;margin-bottom:.4rem;text-transform:uppercase}
+  .slogan-parrilla-desc{font-size:.92rem;color:var(--tinta-suave);line-height:1.55;margin:0}
   /* ---------- DOMICILIO ---------- */
   .domi-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem;margin-top:1.8rem}
   .domi-card{background:var(--hueso);border-radius:8px;padding:1.4rem;border-top:3px solid var(--brasa);box-shadow:0 2px 10px rgba(43,36,28,.05)}
@@ -336,7 +339,7 @@
     <div class="menu-panel" id="panel-comida" role="tabpanel" aria-labelledby="tab-comida" hidden>
       <div class="menu-chips" role="navigation" aria-label="Secciones comida">
         <button class="menu-chip" data-target="com-paquetes">Los Paquetes</button>
-        <button class="menu-chip" data-target="com-entradas">Entradas</button>
+        <button class="menu-chip" data-target="com-entradas">De Entrada</button>
         <button class="menu-chip" data-target="com-tacos">Tacos</button>
         <button class="menu-chip" data-target="com-parrilla">Parrilla</button>
         <button class="menu-chip" data-target="com-alambres">Alambres</button>
@@ -347,6 +350,7 @@
         <button class="menu-chip" data-target="com-compartidos">Compartidos</button>
         <button class="menu-chip" data-target="com-bebidas">Bebidas</button>
       </div>
+
       <div class="ov-sec" id="com-paquetes">
         <h3 class="ov-pill">Los Paquetes</h3>
         <div class="ov-incluye">
@@ -354,27 +358,28 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16l-1.5 9H5.5L4 4Z"/><path d="M7 13v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-6"/></svg>
             Todos los paquetes incluyen
           </strong>
-          Consomé de pollo (con arroz y garbanzo) ó sopa de hongos · 1 bebida (refresco o agua de sabor) · Frijoles de la olla / botana chicharrón / postre
+          Consomé de pollo (con arroz y garbanzo) ó sopa de hongos · 1 bebida (refresco o agua de sabor) · Frijoles de la olla · botana de chicharrón · postre
         </div>
         <div class="ov-list">
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 1</span><span class="ov-item-name">Tus Tacos</span><span class="ov-item-desc">3 tacos a escoger en tortilla grande: bisteck, chorizo, suadero, pollo, adobada, cochinita</span></div><span class="ov-item-price">$150</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 2</span><span class="ov-item-name">De Arrachera</span><span class="ov-item-desc">2 tacos de arrachera</span></div><span class="ov-item-price">$140</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 3</span><span class="ov-item-name">Enchiles</span><span class="ov-item-desc">3 enchiladas de pollo</span><span class="ov-item-note">Enchiladas suizas +$20</span></div><span class="ov-item-price">$150</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 4</span><span class="ov-item-name">Chiflen</span><span class="ov-item-desc">3 flautas (res, pollo ó queso)</span></div><span class="ov-item-price">$150</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 5</span><span class="ov-item-name">A Mis Costillas</span><span class="ov-item-desc">Costilla (ensalada ó nopales ó dobladita)</span></div><span class="ov-item-price">$185</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 6</span><span class="ov-item-name">Apechugues</span><span class="ov-item-desc">Pechuga al carbón (ensalada ó nopales ó papas)</span></div><span class="ov-item-price">$180</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 7</span><span class="ov-item-name">Piques</span><span class="ov-item-desc">Alambre de pollo ó bisteck</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$180</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 8</span><span class="ov-item-name">Piques Arrachera</span><span class="ov-item-desc">Alambre de arrachera</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$199</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 9</span><span class="ov-item-name">Llenes</span><span class="ov-item-desc">Arrachera al carbón 250 g con papas a la francesa y ensalada</span></div><span class="ov-item-price">$195</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 10</span><span class="ov-item-name">Animes</span><span class="ov-item-desc">Carne a la tampiqueña con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$180</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 11</span><span class="ov-item-name">Consientas</span><span class="ov-item-desc">Cecina natural con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$185</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 12</span><span class="ov-item-name">Chilaquiles</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Ejecutivo $180</span></div><span class="ov-item-price var">desde $120</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 1</span><span class="ov-item-name">Paquete Tus Tacos</span><span class="ov-item-desc">3 tacos a escoger en tortilla grande: bisteck, chorizo, suadero, pollo, adobada, cochinita</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 2</span><span class="ov-item-name">Paquete De Arrachera</span><span class="ov-item-desc">2 tacos de arrachera</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 3</span><span class="ov-item-name">Paquete Enchiles</span><span class="ov-item-desc">3 enchiladas de pollo</span><span class="ov-item-note">Enchiladas suizas +$20</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 4</span><span class="ov-item-name">Paquete Chiflen</span><span class="ov-item-desc">3 flautas (res, pollo ó queso)</span></div><span class="ov-item-price">$150</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 5</span><span class="ov-item-name">Paquete A Mis Costillas</span><span class="ov-item-desc">Costilla con ensalada ó nopales ó dobladita</span></div><span class="ov-item-price">$185</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 6</span><span class="ov-item-name">Paquete Apechugues</span><span class="ov-item-desc">Pechuga al carbón con ensalada ó nopales ó papas</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 7</span><span class="ov-item-name">Paquete Piques</span><span class="ov-item-desc">Alambre de pollo ó bisteck</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 8</span><span class="ov-item-name">Paquete Piques Arrachera</span><span class="ov-item-desc">Alambre de arrachera</span><span class="ov-item-note">Con queso +$15</span></div><span class="ov-item-price">$199</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 9</span><span class="ov-item-name">Paquete Llenes</span><span class="ov-item-desc">Arrachera al carbón 250 g acompañada con papas a la francesa y ensalada</span></div><span class="ov-item-price">$195</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 10</span><span class="ov-item-name">Paquete Animes</span><span class="ov-item-desc">Carne a la tampiqueña acompañada con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$180</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 11</span><span class="ov-item-name">Paquete Consientas</span><span class="ov-item-desc">Cecina natural acompañada con dobladita verde, arroz ó ensalada</span></div><span class="ov-item-price">$185</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 12</span><span class="ov-item-name">Paquete De Chilaquiles</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Ejecutivo $180</span></div><span class="ov-item-price var">desde $120</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 13</span><span class="ov-item-name">Agujas Norteñas</span><span class="ov-item-desc">Con papas a la francesa</span></div><span class="ov-item-price">$160</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 14</span><span class="ov-item-name">Sopecitos</span><span class="ov-item-desc">Sencillos $118 · Compuestos $125</span></div><span class="ov-item-price var">desde $118</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 15</span><span class="ov-item-name">Chancla (Huarache)</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Especial $180</span></div><span class="ov-item-price var">desde $120</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 14</span><span class="ov-item-name">Paquete Sopecitos</span><span class="ov-item-desc">Sopecitos (3) sencillos $118 · Sopecitos compuestos $125</span></div><span class="ov-item-price var">desde $118</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-num">Paquete 15</span><span class="ov-item-name">Paquete Chancla (Huarache)</span><span class="ov-item-desc">Sencillo $120 · Compuesto $140 · Compuesto especial $180</span></div><span class="ov-item-price var">desde $120</span></div>
         </div>
         <p class="ov-nota-suelta">Cambios: consomé con pollo +$15 · tacos con queso +$20 · cerveza +$19</p>
       </div>
+
       <div class="ov-sec" id="com-entradas">
         <h3 class="ov-pill ov-pill--brasa">De Entrada</h3>
         <div class="ov-list">
@@ -386,10 +391,11 @@
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Nopalitos cocinados con cebolla</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$49</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Frijoles de la olla</span></div><span class="ov-item-price">$25</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chicharrón</span><span class="ov-item-desc">Orden</span></div><span class="ov-item-price">$30</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Quesadilla asada</span><span class="ov-item-desc">Queso o chorizo</span></div><span class="ov-item-price">$30</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Quesadilla asada</span><span class="ov-item-desc">Queso ó chorizo</span></div><span class="ov-item-price">$30</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de 3 sopecitos</span><span class="ov-item-desc">Pollo, bistec, suadero, cochinita, chorizo, carne adobada</span></div><span class="ov-item-price">$50</span></div>
         </div>
       </div>
+
       <div class="ov-sec" id="com-tacos">
         <h3 class="ov-pill">Los Tacos</h3>
         <div class="ov-list">
@@ -401,17 +407,19 @@
         </div>
         <p class="ov-nota-suelta">Tortillas hechas a mano</p>
       </div>
+
       <div class="ov-sec" id="com-parrilla">
         <h3 class="ov-pill ov-pill--brasa">Parrilla</h3>
         <div class="ov-list">
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Costilla</span><span class="ov-item-desc">Nopales ó ensalada, con frijoles de la olla</span></div><span class="ov-item-price">$145</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Agujas norteñas</span><span class="ov-item-desc">Asada al carbón con papas a la francesa</span></div><span class="ov-item-price">$135</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Pechuga de pollo</span><span class="ov-item-desc">Natural o adobada · nopales ó ensalada, frijoles, papas a la francesa</span></div><span class="ov-item-price">$140</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Arrachera especial 250 g</span><span class="ov-item-desc">Papas a la francesa, ensalada y frijoles de la olla</span></div><span class="ov-item-price">$165</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Carne tampiqueña</span><span class="ov-item-desc">Dobladita verde, arroz ó ensalada y frijoles</span></div><span class="ov-item-price">$140</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cecina natural</span><span class="ov-item-desc">Dobladita verde, arroz ó ensalada y frijoles de la olla</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Costilla</span><span class="ov-item-desc">Guarnición: nopales ó ensalada, con frijoles de la olla</span></div><span class="ov-item-price">$145</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de agujas norteñas</span><span class="ov-item-desc">Asada al carbón con guarnición de papas a la francesa</span></div><span class="ov-item-price">$135</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Pechuga de pollo</span><span class="ov-item-desc">Natural o adobada · guarnición de nopales ó ensalada, con frijoles de la olla y papas a la francesa</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Arrachera especial</span><span class="ov-item-desc">250 g de jugosa carne con papas a la francesa, ensalada y frijoles de la olla</span></div><span class="ov-item-price">$165</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Carne tampiqueña</span><span class="ov-item-desc">Acompañada con dobladita verde, arroz ó ensalada y frijoles</span></div><span class="ov-item-price">$140</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cecina natural</span><span class="ov-item-desc">Con dobladita verde, arroz ó ensalada y frijoles de la olla</span></div><span class="ov-item-price">$140</span></div>
         </div>
       </div>
+
       <div class="ov-sec" id="com-alambres">
         <h3 class="ov-pill">Alambres</h3>
         <p style="font-size:.84rem;color:var(--tinta-suave);margin-bottom:.7rem">Tocino, jamón, pimiento morrón y cebolla · incluyen frijoles de la olla</p>
@@ -423,16 +431,19 @@
         </div>
         <p class="ov-nota-suelta">Con queso +$15</p>
       </div>
+
       <div class="ov-sec" id="com-huaraches">
         <h3 class="ov-pill ov-pill--mostaza">Huaraches</h3>
         <div class="ov-list">
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Sencillo</span><span class="ov-item-desc">Salsa verde, roja ó combinada</span></div><span class="ov-item-price">$50</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con bistec / suadero / chorizo / cecina adobada / choristec / pollo / nopales / cochinita / queso Oaxaca</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Bistec / suadero / chorizo / cecina adobada</span></div><span class="ov-item-price">$75</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Choristec (campechano) / pollo / nopales / cochinita pibil / queso Oaxaca</span></div><span class="ov-item-price">$75</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con arrachera</span></div><span class="ov-item-price">$95</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Con costilla al carbón / cecina yecapixtla / pechuga</span></div><span class="ov-item-price">$105</span></div>
         </div>
         <p class="ov-nota-suelta">Paquete huarache (consomé, frijoles y bebida) +$60</p>
       </div>
+
       <div class="ov-sec" id="com-sopes">
         <h3 class="ov-pill">Sopes</h3>
         <div class="ov-list">
@@ -441,65 +452,89 @@
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Orden de 3 sopes</span><span class="ov-item-desc">Tamaño pequeño</span></div><span class="ov-item-price">$50</span></div>
         </div>
       </div>
+
       <div class="ov-sec" id="com-pancita">
-        <h3 class="ov-pill ov-pill--brasa">Rica Pancita <span class="ov-badge">Jue · Vie · Sáb · Dom</span></h3>
+        <h3 class="ov-pill ov-pill--brasa">Rica Pancita <span class="ov-badge">Jueves · Viernes · Sábado · Domingo</span></h3>
         <div class="ov-list">
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato chico</span></div><span class="ov-item-price">$95</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato grande</span></div><span class="ov-item-price">$120</span></div>
         </div>
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Paquete pancita en desayuno</p>
+          <p style="font-size:.8rem;color:var(--tinta-suave);margin-bottom:.4rem">Incluye jugo, café, pan y fruta · con botana de chicharrón</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato chico</span></div><span class="ov-item-price">$145</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Plato grande</span></div><span class="ov-item-price">$170</span></div>
+          </div>
+        </div>
       </div>
+
       <div class="ov-sec" id="com-antojo">
         <h3 class="ov-pill">Un Antojo</h3>
         <div class="ov-list">
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flautas 3 pz</span><span class="ov-item-desc">Pollo ó res ó queso, con lechuga, queso y crema</span></div><span class="ov-item-price">$90</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flautas 3 pz</span><span class="ov-item-desc">Pollo ó res ó queso · con lechuga, queso y crema</span></div><span class="ov-item-price">$90</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flauta individual</span></div><span class="ov-item-price">$35</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Enchiladas verdes 3 pz con pollo</span></div><span class="ov-item-price">$90</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles solos</span></div><span class="ov-item-price">$70</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles compuestos</span><span class="ov-item-desc">Con pollo / bisteck / chorizo / huevo / cecina adobada / cochinita pibil</span></div><span class="ov-item-price">$85</span></div>
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles con costilla / cecina natural / arrachera</span></div><span class="ov-item-price">$120</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles compuestos</span><span class="ov-item-desc">Pollo / bisteck / chorizo / huevo / cecina adobada / cochinita pibil</span></div><span class="ov-item-price">$85</span></div>
           <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles ejecutivo con pechuga</span></div><span class="ov-item-price">$160</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Chilaquiles con costilla / cecina natural / arrachera</span></div><span class="ov-item-price">$120</span></div>
         </div>
       </div>
+
       <div class="ov-sec" id="com-compartidos">
         <h3 class="ov-pill ov-pill--brasa">Los Compartidos</h3>
         <div class="ov-list">
-          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Paquete "A"</span><span class="ov-item-desc">1⁄2 kg arrachera · 2 órdenes de consomé · 1 orden de chicharrón · 1 orden de papas a la francesa · cebollitas y chiles toreados</span></div><span class="ov-item-price">$390</span></div>
+          <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Paquete "A"</span><span class="ov-item-desc">½ kg arrachera · 2 órdenes de consomé · 1 orden de chicharrón · 1 orden de papas a la francesa · cebollitas y chiles toreados</span></div><span class="ov-item-price">$390</span></div>
         </div>
       </div>
+
       <div class="ov-sec" id="com-bebidas">
         <h3 class="ov-pill ov-pill--mostaza">Bebidas y Postres</h3>
+
         <div class="ov-subsec">
           <p class="ov-subsec-title">Aguas naturales</p>
           <p style="font-size:.8rem;color:var(--tinta-suave);margin-bottom:.4rem">Jamaica · horchata · tamarindo · jamaica sin azúcar</p>
           <div class="ov-list">
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Vaso 1⁄2 L</span></div><span class="ov-item-price">$35</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Vaso ½ L</span></div><span class="ov-item-price">$35</span></div>
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Jarra 1 L</span></div><span class="ov-item-price">$65</span></div>
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Jarra 2 L</span></div><span class="ov-item-price">$120</span></div>
           </div>
           <p class="ov-nota-suelta" style="margin-top:.3rem">La horchata contiene leche condensada</p>
         </div>
+
         <div class="ov-subsec">
-          <p class="ov-subsec-title">Café y refrescos</p>
+          <p class="ov-subsec-title">Café</p>
           <div class="ov-list">
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Café de olla / Café americano</span></div><span class="ov-item-price">$30</span></div>
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Refresco</span><span class="ov-item-desc">Coca-Cola, Mundet, Sangría, agua mineral, Ciel, Coca light y sin azúcar</span></div><span class="ov-item-price">$35</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Café de olla</span></div><span class="ov-item-price">$30</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Café americano</span></div><span class="ov-item-price">$30</span></div>
           </div>
         </div>
+
+        <div class="ov-subsec">
+          <p class="ov-subsec-title">Bebidas embotelladas</p>
+          <div class="ov-list">
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Refresco</span><span class="ov-item-desc">Coca-Cola · Mundet · Sangría · agua mineral · Ciel · Coca light y sin azúcar</span></div><span class="ov-item-price">$35</span></div>
+          </div>
+        </div>
+
         <div class="ov-subsec">
           <p class="ov-subsec-title">Cervezas</p>
           <div class="ov-list">
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cerveza</span><span class="ov-item-desc">Tecate, Indio, XX Lager, Corona, Ámbar, Oscura, Bohemia Clara</span></div><span class="ov-item-price">$44</span></div>
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Michelada / Cubanas</span></div><span class="ov-item-price">+$10</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cerveza</span><span class="ov-item-desc">Tecate · Indio · XX Lager · Corona · Ámbar · Oscura · Bohemia Clara · otras</span></div><span class="ov-item-price">$44</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Michelada</span></div><span class="ov-item-price">+$10</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Cubanas</span></div><span class="ov-item-price">+$10</span></div>
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Clamatos</span></div><span class="ov-item-price">+$25</span></div>
           </div>
         </div>
+
         <div class="ov-subsec">
-          <p class="ov-subsec-title">Postres</p>
+          <p class="ov-subsec-title">Deliciosos flanes horneados</p>
           <div class="ov-list">
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan napolitano</span></div><span class="ov-item-price">$45</span></div>
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan de Nutella</span></div><span class="ov-item-price">$49</span></div>
             <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Flan de cajeta</span></div><span class="ov-item-price">$49</span></div>
-            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Rebanada de pastel</span><span class="ov-item-desc">Incluye café</span></div><span class="ov-item-price">$65</span></div>
+            <div class="ov-item"><div class="ov-item-info"><span class="ov-item-name">Rebanada de pastel</span><span class="ov-item-desc">Con café</span></div><span class="ov-item-price">$65</span></div>
           </div>
         </div>
       </div>
@@ -513,12 +548,17 @@
     <p class="lede">Un vistazo a lo que se cocina cada día en el carbón.</p>
     <p>Carnes al carbón y sazón de casa. Ven con tu familia o pide a domicilio, aquí se come rico y a gusto</p>
 
+    <div class="slogan-parrilla">
+      <p class="slogan-parrilla-title">Preparamos al momento sus platillos</p>
+      <p class="slogan-parrilla-desc">Todos nuestros ingredientes son seleccionados y preparados con alta calidad y cariño para usted. Todas nuestras verduras son lavadas y desinfectadas cuidadosamente.</p>
+    </div>
+
     <div class="fotos-grid">
-      <div class="foto-ph grande"><span>Foto: parrilla al carbón</span></div>
-      <div class="foto-ph"><span>Foto: arrachera</span></div>
-      <div class="foto-ph"><span>Foto: costillas BBQ</span></div>
-      <div class="foto-ph"><span>Foto: interior del local</span></div>
-      <div class="foto-ph"><span>Foto: alambre con queso</span></div>
+      <div class="foto-ph grande"><span>Foto:</span></div>
+      <div class="foto-ph"><span>Foto: </span></div>
+      <div class="foto-ph"><span>Foto: </span></div>
+      <div class="foto-ph"><span>Foto: </span></div>
+      <div class="foto-ph"><span>Foto: </span></div>
     </div>
   </div>
 </section>
