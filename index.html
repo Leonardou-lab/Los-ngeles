@@ -123,12 +123,22 @@
   .ov-nota-suelta{font-size:.82rem;color:var(--tinta-suave);margin-top:1rem;font-style:italic}
   /* ---------- FOTOS ---------- */
   .fotos{background:var(--crema-2)}
-  .fotos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.85rem;margin-top:1.8rem}
-  .foto-ph{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:linear-gradient(155deg,#3B2E22,#1B1712);display:flex;align-items:flex-end;color:#B8AE9F;font-size:.76rem;font-weight:600;text-align:left;padding:.7rem;border:1px solid rgba(255,255,255,.08)}
-  .foto-ph::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(193,68,14,.28),transparent 60%)}
-  .foto-ph span{position:relative;z-index:1}
-  .foto-ph.grande{grid-column:span 2;aspect-ratio:2/1}
-  @media(max-width:420px){.foto-ph.grande{grid-column:span 1;aspect-ratio:1/1}}
+  .slideshow{position:relative;margin-top:1.8rem;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--carbon)}
+  .slideshow-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;pointer-events:none}
+  .slideshow-slide.activa{opacity:1;pointer-events:auto;z-index:1}
+  .slideshow-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .slideshow-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;border-radius:50%;background:rgba(27,23,18,.45);color:var(--hueso);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .25s ease,background .2s ease;z-index:2}
+  .slideshow-arrow svg{width:20px;height:20px}
+  .slideshow-arrow--prev{left:.6rem}
+  .slideshow-arrow--next{right:.6rem}
+  .slideshow:hover .slideshow-arrow,.slideshow-arrow:focus-visible{opacity:1}
+  .slideshow-arrow:hover{background:rgba(27,23,18,.72)}
+  @media(hover:none){.slideshow-arrow{opacity:1}}
+  .slideshow-contador{position:absolute;bottom:.65rem;right:.8rem;z-index:2;background:rgba(27,23,18,.55);color:var(--hueso);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3px;padding:.25rem .65rem;border-radius:20px}
+  .slideshow-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .slideshow-dot{box-sizing:content-box;width:9px;height:9px;padding:8px;background-clip:content-box;border-radius:50%;border:none;background-color:var(--linea);cursor:pointer;transition:background-color .2s ease,transform .2s ease}
+  .slideshow-dot.activo{background-color:var(--brasa);transform:scale(1.15)}
+  @media(max-width:640px){.slideshow{aspect-ratio:4/5}}
   .slogan-parrilla{margin-top:1.4rem;padding:1.2rem 1.4rem;background:var(--hueso);border-left:4px solid var(--brasa);border-radius:6px;max-width:640px}
   .slogan-parrilla-title{font-family:'Fraunces',serif;font-weight:600;color:var(--brasa);font-size:1.05rem;letter-spacing:.2px;margin-bottom:.4rem;text-transform:uppercase}
   .slogan-parrilla-desc{font-size:.92rem;color:var(--tinta-suave);line-height:1.55;margin:0}
@@ -553,12 +563,36 @@
       <p class="slogan-parrilla-desc">Todos nuestros ingredientes son seleccionados y preparados con alta calidad y cariño para usted. Todas nuestras verduras son lavadas y desinfectadas cuidadosamente.</p>
     </div>
 
-    <div class="fotos-grid">
-      <div class="foto-ph grande"><span>Foto:</span></div>
-      <div class="foto-ph"><span>Foto: </span></div>
-      <div class="foto-ph"><span>Foto: </span></div>
-      <div class="foto-ph"><span>Foto: </span></div>
-      <div class="foto-ph"><span>Foto: </span></div>
+    <div class="slideshow" data-slideshow aria-roledescription="carrusel" aria-label="Galería de fotos de Restaurante Los Ángeles" aria-live="polite">
+      <div class="slideshow-slide activa"><img src="Costilla.webp" alt="Costillas de cerdo a la parrilla servidas con guarnición en Restaurante Los Ángeles" loading="eager" fetchpriority="high" decoding="async"></div>
+      <div class="slideshow-slide"><img src="HuevoChorizo.webp" alt="Huevo con chorizo recién preparado" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Chilaquiles.webp" alt="Chilaquiles caseros bañados en salsa, con queso y crema" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Divorsiados.webp" alt="Huevos divorciados con salsa roja y salsa verde" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Huarache.webp" alt="Huarache compuesto con carne, queso y nopales" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Omelette.webp" alt="Omelette relleno recién servido" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Suizas.webp" alt="Enchiladas suizas gratinadas con crema" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Veracruzanos.webp" alt="Platillo estilo veracruzano recién preparado" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Restaurante1.webp" alt="Interior del comedor de Restaurante Los Ángeles" loading="lazy" decoding="async"></div>
+      <div class="slideshow-slide"><img src="Restaurante2.webp" alt="Fachada y ambiente de Restaurante Los Ángeles" loading="lazy" decoding="async"></div>
+      <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-prev aria-label="Foto anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" class="slideshow-arrow slideshow-arrow--next" data-next aria-label="Foto siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="slideshow-contador" data-contador>1 / 10</div>
+    </div>
+    <div class="slideshow-dots" data-dots>
+      <button type="button" class="slideshow-dot activo" data-dot aria-label="Ir a la foto 1" aria-current="true"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 2"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 3"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 4"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 5"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 6"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 7"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 8"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 9"></button>
+      <button type="button" class="slideshow-dot" data-dot aria-label="Ir a la foto 10"></button>
     </div>
   </div>
 </section>
@@ -697,6 +731,63 @@
       if (target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
     });
   });
+})();
+(function(){
+  'use strict';
+  var slideshow = document.querySelector('[data-slideshow]');
+  if (!slideshow) return;
+  var slides = slideshow.querySelectorAll('.slideshow-slide');
+  var contador = slideshow.querySelector('[data-contador]');
+  var dots = document.querySelectorAll('[data-dot]');
+  var total = slides.length;
+  var actual = 0;
+  var timer = null;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function ir(indice){
+    slides[actual].classList.remove('activa');
+    dots[actual].classList.remove('activo');
+    dots[actual].removeAttribute('aria-current');
+    actual = (indice + total) % total;
+    slides[actual].classList.add('activa');
+    dots[actual].classList.add('activo');
+    dots[actual].setAttribute('aria-current', 'true');
+    contador.textContent = (actual + 1) + ' / ' + total;
+  }
+  function siguiente(){ ir(actual + 1); }
+  function anterior(){ ir(actual - 1); }
+  function detener(){
+    if (timer){ clearInterval(timer); timer = null; }
+  }
+  function iniciar(){
+    detener();
+    if (reduceMotion) return;
+    timer = setInterval(siguiente, 4000);
+  }
+
+  slideshow.querySelector('[data-prev]').addEventListener('click', function(){ anterior(); iniciar(); });
+  slideshow.querySelector('[data-next]').addEventListener('click', function(){ siguiente(); iniciar(); });
+  dots.forEach(function(dot, idx){
+    dot.addEventListener('click', function(){ ir(idx); iniciar(); });
+  });
+
+  slideshow.addEventListener('mouseenter', detener);
+  slideshow.addEventListener('mouseleave', iniciar);
+
+  var touchStartX = 0;
+  slideshow.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+    detener();
+  }, {passive:true});
+  slideshow.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40){
+      if (dx < 0){ siguiente(); } else { anterior(); }
+    }
+    iniciar();
+  }, {passive:true});
+
+  iniciar();
 })();
 </script>
 </body>
